@@ -3,8 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@dismantled/ui/globals.css";
 
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 import { ThemeProvider } from "@/app/_shared/ui/theme-provider";
+
+import DynamicProvider from "../providers/dynamic-provider";
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -21,11 +24,13 @@ export const metadata: Metadata = {
   description: "Next.js Monorepo Template",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookie = (await headers()).get("cookie");
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -37,7 +42,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <DynamicProvider cookie={cookie}>{children}</DynamicProvider>
         </ThemeProvider>
       </body>
     </html>
