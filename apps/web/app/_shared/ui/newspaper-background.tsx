@@ -1,6 +1,6 @@
 export function NewspaperBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden opacity-5">
+    <div className="pointer-events-none fixed inset-0 overflow-hidden opacity-50">
       {/* Scattered newspaper fragments */}
       <div className="absolute top-20 left-10 h-48 w-32 rotate-12 transform bg-white opacity-30">
         <div className="p-2 font-mono text-xs text-black">
