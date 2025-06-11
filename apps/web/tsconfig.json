@@ -1,10 +1,10 @@
 {
-  "extends": "@myapp/tsconfig/nextjs.json",
+  "extends": "@dismantled/tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@myapp/ui/*": ["../../packages/ui/src/*"]
+      "@dismantled/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
       {
